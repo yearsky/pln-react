@@ -20,6 +20,7 @@ export interface NavItem {
     href: string;
     icon?: LucideIcon | null;
     isActive?: boolean;
+    items?: NavItem[];
 }
 
 export interface SharedData {
@@ -27,6 +28,10 @@ export interface SharedData {
     quote: { message: string; author: string };
     auth: Auth;
     ziggy: Config & { location: string };
+    flash?: { // Tambahkan properti flash (opsional)
+        success?: string;
+        error?: string;
+    };
     [key: string]: unknown;
 }
 

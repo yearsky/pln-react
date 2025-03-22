@@ -1,11 +1,10 @@
-import { NavFooter } from '@/components/nav-footer';
 import { NavMain } from '@/components/nav-main';
-import { NavUser } from '@/components/nav-user';
-import { Sidebar, SidebarContent, SidebarFooter, SidebarHeader, SidebarMenu, SidebarMenuButton, SidebarMenuItem } from '@/components/ui/sidebar';
+import { Sidebar, SidebarContent,  SidebarFooter,  SidebarHeader, SidebarMenu, SidebarMenuButton, SidebarMenuItem } from '@/components/ui/sidebar';
 import { type NavItem } from '@/types';
 import { Link } from '@inertiajs/react';
-import { BookOpen, Folder, LayoutGrid } from 'lucide-react';
+import { LayoutGrid,PersonStanding,Settings } from 'lucide-react';
 import AppLogo from './app-logo';
+import {NavUser} from './nav-user';
 
 const mainNavItems: NavItem[] = [
     {
@@ -13,18 +12,35 @@ const mainNavItems: NavItem[] = [
         href: '/dashboard',
         icon: LayoutGrid,
     },
-];
-
-const footerNavItems: NavItem[] = [
     {
-        title: 'Repository',
-        href: 'https://github.com/laravel/react-starter-kit',
-        icon: Folder,
+        title: 'Pelanggan',
+        href: '',
+        icon: PersonStanding,
+        items: [
+            {
+                title: 'Kolektif',
+                href: '/pelanggan/kolektif',
+            },
+            {
+                title: 'Escrow',
+                href: '/pelanggan/escrow',
+            },
+        ],
     },
     {
-        title: 'Documentation',
-        href: 'https://laravel.com/docs/starter-kits',
-        icon: BookOpen,
+        title: 'Maintenance',
+        href: '',
+        icon: Settings,
+        items: [
+            {
+                title: 'User',
+                href: '/maintenance/user',
+            },
+            {
+                title: 'Vendor',
+                href: '/maintenance/vendor',
+            },
+        ],
     },
 ];
 
@@ -48,7 +64,7 @@ export function AppSidebar() {
             </SidebarContent>
 
             <SidebarFooter>
-                <NavFooter items={footerNavItems} className="mt-auto" />
+                {/* <NavFooter items={footerNavItems} className="mt-auto" /> */}
                 <NavUser />
             </SidebarFooter>
         </Sidebar>
